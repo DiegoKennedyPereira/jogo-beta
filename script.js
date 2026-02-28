@@ -3,7 +3,6 @@ const target = document.getElementById('target');
 const scoreDisplay = document.getElementById('score');
 const timerDisplay = document.getElementById('timer');
 const startBtn = document.getElementById('start-btn');
-const message = document.getElementById('message');
 
 let score = 0;
 let timeLeft = 30;
@@ -22,12 +21,15 @@ function moveTarget() {
 }
 
 function startGame() {
+    // Limpa qualquer intervalo existente se o jogo for reiniciado
+    clearInterval(gameInterval);
+
     score = 0;
     timeLeft = 30;
     scoreDisplay.textContent = score;
     timerDisplay.textContent = timeLeft;
+
     startBtn.disabled = true;
-    message.classList.add('hidden');
     target.classList.remove('hidden');
     gameStarted = true;
 
@@ -48,8 +50,11 @@ function endGame() {
     gameStarted = false;
     target.classList.add('hidden');
     startBtn.disabled = false;
-    message.textContent = `Time is up! Final score: ${score}`;
-    message.classList.remove('hidden');
+
+    // Timeout pequeno para garantir que o DOM atualizou antes do alert travar o thread
+    setTimeout(() => {
+        alert(`Fim de jogo! Sua pontuação final foi: ${score}`);
+    }, 10);
 }
 
 target.addEventListener('click', () => {
