@@ -41,13 +41,20 @@ h1 {
     overflow: hidden;
 }
 
-#target {
+#target, #target-bonus {
     position: absolute;
     width: 40px;
     height: 40px;
-    background-color: red;
     border-radius: 50%;
     cursor: pointer;
+}
+
+#target {
+    background-color: red;
+}
+
+#target-bonus {
+    background-color: green;
 }
 
 #start-btn {

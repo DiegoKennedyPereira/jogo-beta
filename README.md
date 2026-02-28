@@ -8,7 +8,8 @@ O objetivo do jogo é clicar no círculo vermelho o máximo de vezes possível d
 ## Como jogar
 1. Clique no botão "Iniciar Jogo".
 2. Tente clicar no círculo vermelho que aparece na tela.
-3. Veja quantos pontos você consegue fazer antes que o tempo acabe!
+3. **Mecânica de Bônus:** A cada 5 cliques no alvo vermelho, um **alvo verde** aparecerá em uma posição aleatória por apenas 2 segundos. Clique nele rapidamente para ganhar **3 pontos de bônus**!
+4. Veja quantos pontos você consegue fazer antes que o tempo acabe!
 
 ## Funcionamento do Visual
 O design do jogo foi pensado para ser limpo e focado na jogabilidade:
@@ -24,4 +25,5 @@ A interatividade do jogo é controlada por um script que gerencia o estado da pa
 - **Controle de Tempo:** Utilizamos a função `setInterval` para criar um cronômetro que decrementa o tempo restante a cada 1 segundo (1000 milissegundos). Quando o tempo chega a zero, o jogo é encerrado.
 - **Posicionamento Aleatório:** Sempre que o jogo começa ou o alvo é clicado, a função `Math.random` é usada para calcular coordenadas (X e Y) aleatórias. Isso garante que o alvo pule para uma nova posição imprevisível dentro dos limites de 400x400 pixels da área de jogo.
 - **Pontuação e Cliques:** Um "escutador de eventos" (EventListener) aguarda cliques no alvo. Quando detectado, a pontuação é incrementada e o alvo se move instantaneamente.
+- **Alvo de Bônus:** O script rastreia a quantidade de cliques no alvo vermelho. Ao atingir múltiplos de 5, a função `spawnBonusTarget` é ativada, exibindo o alvo verde e iniciando um `setTimeout` de 2 segundos para escondê-lo automaticamente, caso não seja clicado antes.
 - **Finalização:** Ao término dos 30 segundos, o alvo é escondido e um alerta do navegador (`alert`) informa a pontuação final do jogador. O botão de início é então reabilitado para uma nova partida.
