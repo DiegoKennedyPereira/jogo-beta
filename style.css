@@ -11,31 +11,33 @@ body {
 .container {
     text-align: center;
     background-color: #fff;
-    padding: 20px;
+    padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 600px;
+    width: auto;
 }
 
 h1 {
     color: #333;
+    margin-top: 0;
 }
 
 .info {
     font-size: 1.2rem;
     margin-bottom: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 40px;
 }
 
 #game-area {
     position: relative;
-    width: 100%;
+    width: 400px;
     height: 400px;
     background-color: #eee;
-    border: 1px solid #ccc;
+    border: 2px solid #333;
     border-radius: 4px;
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
     overflow: hidden;
 }
 
@@ -57,6 +59,7 @@ h1 {
     border: none;
     border-radius: 4px;
     transition: background-color 0.3s;
+    margin-top: 10px;
 }
 
 #start-btn:hover {
@@ -76,5 +79,5 @@ h1 {
     font-weight: bold;
     font-size: 1.1rem;
     color: #e74c3c;
-    margin-top: 10px;
+    margin-top: 15px;
 }
